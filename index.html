@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Tech Solutions - Secure Link Portal</title>
 
-    <!-- 🔴 ১. Monetag Verification Code 🔴 -->
+    <!-- 🔴 ১. Monetag Verification Code (আপনার মেটা ট্যাগ এখানে বসাবেন) 🔴 -->
     <meta name="monetag" content="আপনার_মোনেটাগ_ভেরিফিকেশন_কোড_এখানে">
-
-    <!-- 🔴 ২. Monetag Scripts (Vignette, Popunder, In-Page Push) 🔴 -->
-    <!-- <script src="monetag-popunder.js"></script> -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,12 +17,8 @@
         
         /* 1. Fake Navigation Bar */
         .navbar {
-            background: #ffffff;
-            padding: 15px 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #ffffff; padding: 15px 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
         }
         .logo { font-size: 24px; font-weight: 700; color: #0984e3; letter-spacing: 1px; }
         .nav-links a { margin-left: 20px; text-decoration: none; color: #636e72; font-weight: 500; }
@@ -90,7 +83,7 @@
 </head>
 <body>
 
-    <!-- Fake Navbar (Makes it look like a real company) -->
+    <!-- Fake Navbar -->
     <nav class="navbar">
         <div class="logo">Global Tech Solutions</div>
         <div class="nav-links">
@@ -108,9 +101,9 @@
             <h2>Securing Your Connection</h2>
             <p class="subtitle">Our advanced servers are validating your request. Please wait.</p>
 
-            <!-- 🔴 ৩. Monetag Banner Ad Placeholder (Top) 🔴 -->
+            <!-- 🔴 Monetag Banner Ad Placeholder 🔴 -->
             <div class="ad-container">
-                [ Premium Advertisement Space 1 ]
+                [ Advertisement Space 1 ]
             </div>
 
             <!-- Timer & Progress Bar -->
@@ -121,71 +114,57 @@
                 </div>
             </div>
 
-            <!-- Action Button (Triggers Monetag Popunder!) -->
+            <!-- Action Button -->
             <button id="go-button" class="action-btn" onclick="goToDestination()">
                 🚀 Proceed to Destination
             </button>
-
-            <!-- 🔴 ৪. Monetag Banner Ad Placeholder (Bottom) 🔴 -->
-            <div class="ad-container" style="min-height: 100px;">
-                [ Premium Advertisement Space 2 ]
-            </div>
             
             <p style="font-size: 12px; color: #a4b0be; margin-top: 15px;">Protected by Enterprise-Grade 256-bit Encryption</p>
         </div>
     </section>
 
-    <!-- Corporate Blog Posts (To bypass Ad Network Rejections) -->
+    <!-- Corporate Blog Posts -->
     <section class="articles-section">
         <h3 class="section-title">Latest Industry Insights</h3>
         <div class="article-grid">
-            
-            <!-- Post 1 -->
             <div class="article-card">
                 <div class="article-img">☁️</div>
                 <div class="article-content">
                     <span class="category">Cloud Computing</span>
-                    <h4 class="article-title">The Future of Multi-Cloud Architecture in 2026</h4>
-                    <p class="article-desc">As businesses scale globally, adopting a multi-cloud strategy has become essential. Learn how companies are leveraging AWS, Google Cloud, and Azure to maximize uptime and security.</p>
+                    <h4 class="article-title">The Future of Multi-Cloud Architecture</h4>
+                    <p class="article-desc">Learn how companies are leveraging AWS, Google Cloud, and Azure to maximize uptime and security globally.</p>
                 </div>
             </div>
-
-            <!-- Post 2 -->
             <div class="article-card">
                 <div class="article-img">🔐</div>
                 <div class="article-content">
                     <span class="category">Cybersecurity</span>
-                    <h4 class="article-title">Zero Trust Security: Why Passwords Are Not Enough</h4>
-                    <p class="article-desc">With cyber threats evolving rapidly, the 'Zero Trust' model ensures that every user, device, and connection is strictly authenticated. Discover the latest tools for data protection.</p>
+                    <h4 class="article-title">Zero Trust Security Protocols</h4>
+                    <p class="article-desc">Discover why the 'Zero Trust' model ensures that every user, device, and connection is strictly authenticated.</p>
                 </div>
             </div>
-
-            <!-- Post 3 -->
             <div class="article-card">
                 <div class="article-img">🤖</div>
                 <div class="article-content">
                     <span class="category">Artificial Intelligence</span>
-                    <h4 class="article-title">How Generative AI is Transforming Enterprise Workflows</h4>
-                    <p class="article-desc">From automated customer support to complex data analysis, AI algorithms are saving thousands of hours. Explore the top AI trends reshaping modern business infrastructure.</p>
+                    <h4 class="article-title">AI in Enterprise Workflows</h4>
+                    <p class="article-desc">Explore the top AI trends reshaping modern business infrastructure and automating complex data analysis.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Professional Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Global Tech Solutions Inc. All rights reserved.</p>
         <p style="margin-top: 10px;">
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Cookie Policy</a>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookie Policy</a>
         </p>
     </footer>
 
-    <!-- Redirect Script -->
+    <!-- 🔴 Timer & Redirect Script 🔴 -->
     <script>
-        // 🔴 আপনার মেইন ওয়েবসাইটের লিংক (কোথায় যাবে) 🔴
+        // আপনার মেইন ওয়েবসাইটের লিংক (কোথায় যাবে)
         const targetURL = "https://bdhot.vercel.app/";
         
         let totalSeconds = 15;
@@ -199,7 +178,6 @@
         const interval = setInterval(() => {
             currentSecond++;
             let remaining = totalSeconds - currentSecond;
-            
             timeDisplay.innerText = remaining;
             
             let progressPercentage = (currentSecond / totalSeconds) * 100;
@@ -216,6 +194,19 @@
 
         function goToDestination() {
             window.location.href = targetURL;
+        }
+    </script>
+
+    <!-- 🔴 Push Notification Service Worker Registration Script 🔴 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
         }
     </script>
 
