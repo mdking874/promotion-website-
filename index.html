@@ -3,184 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Link Forwarder - Please Wait</title>
+    <title>Global Tech Solutions - Secure Link Portal</title>
 
     <!-- 🔴 ১. Monetag Verification Code 🔴 -->
     <meta name="monetag" content="আপনার_মোনেটাগ_ভেরিফিকেশন_কোড_এখানে">
 
-    <!-- 🔴 ২. Monetag Scripts (Vignette, In-Page Push, Popunder) এই হেডারের ভেতর বসাবেন 🔴 -->
-    <!-- উদাহরণ: <script src="monetag-popunder.js"></script> -->
+    <!-- 🔴 ২. Monetag Scripts (Vignette, Popunder, In-Page Push) 🔴 -->
+    <!-- <script src="monetag-popunder.js"></script> -->
 
-    <!-- Google Fonts for Premium Look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: #f4f7f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #333;
-        }
-        .main-card {
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #f8f9fa; color: #2d3436; line-height: 1.6; }
+        
+        /* 1. Fake Navigation Bar */
+        .navbar {
             background: #ffffff;
-            width: 100%;
-            max-width: 650px;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border: 1px solid #eef2f5;
+            padding: 15px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 24px; font-weight: 700; color: #0984e3; letter-spacing: 1px; }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #636e72; font-weight: 500; }
+        .nav-links a:hover { color: #0984e3; }
+
+        /* 2. Hero Section (Redirect Card) */
+        .hero-section { padding: 60px 20px; display: flex; justify-content: center; }
+        .main-card {
+            background: #ffffff; width: 100%; max-width: 650px; padding: 40px;
+            border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            text-align: center; border-top: 5px solid #0984e3;
         }
         .header-icon {
-            width: 60px;
-            height: 60px;
-            background: #e0f7fa;
-            color: #00acc1;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
-            margin: 0 auto 20px auto;
+            width: 70px; height: 70px; background: #e0f7fa; color: #00acc1;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 32px; margin: 0 auto 20px auto;
         }
-        h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1e272e;
-            margin-bottom: 10px;
-        }
-        p.subtitle {
-            font-size: 15px;
-            color: #808e9b;
-            margin-bottom: 25px;
-        }
+        .main-card h2 { font-size: 26px; color: #2d3436; margin-bottom: 10px; }
+        .subtitle { font-size: 15px; color: #636e72; margin-bottom: 25px; }
         
-        /* Premium Ad Space */
+        /* Premium Ad Spaces */
         .ad-container {
-            background: #fafbfc;
-            border: 2px dashed #d2dae2;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            min-height: 250px; /* Perfect for Banner/Native Ads */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #b2bec3;
-            font-weight: 500;
-            font-size: 14px;
+            background: #f1f2f6; border: 2px dashed #ced6e0; border-radius: 10px;
+            padding: 15px; margin: 20px 0; min-height: 250px; display: flex;
+            align-items: center; justify-content: center; color: #a4b0be; font-size: 14px;
         }
 
         /* Progress Bar Timer */
-        .progress-wrapper {
-            background: #ecf0f1;
-            border-radius: 20px;
-            height: 12px;
-            width: 100%;
-            overflow: hidden;
-            margin: 20px 0;
-            position: relative;
-        }
-        .progress-bar {
-            background: linear-gradient(90deg, #0984e3, #00cec9);
-            height: 100%;
-            width: 0%;
-            border-radius: 20px;
-            transition: width 1s linear;
-        }
-        .timer-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2d3436;
-            margin-bottom: 20px;
-        }
-        .timer-text span {
-            color: #d63031;
-            font-size: 22px;
-        }
+        .progress-wrapper { background: #dfe4ea; border-radius: 20px; height: 12px; overflow: hidden; margin: 20px 0; }
+        .progress-bar { background: linear-gradient(90deg, #0984e3, #00cec9); height: 100%; width: 0%; transition: width 1s linear; }
+        .timer-text { font-size: 18px; font-weight: 600; color: #2d3436; margin-bottom: 20px; }
+        .timer-text span { color: #d63031; font-size: 24px; }
 
         /* Action Button */
         .action-btn {
-            display: none; /* Initially hidden */
-            background: linear-gradient(135deg, #00b894, #00cec9);
-            color: #fff;
-            border: none;
-            padding: 16px 35px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0, 206, 201, 0.3);
-            transition: all 0.3s ease;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: none; background: linear-gradient(135deg, #0984e3, #00cec9); color: #fff;
+            border: none; padding: 16px 35px; font-size: 18px; font-weight: 600; border-radius: 30px;
+            cursor: pointer; width: 100%; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(9, 132, 227, 0.3); transition: 0.3s;
         }
-        .action-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 206, 201, 0.4);
-        }
+        .action-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(9, 132, 227, 0.5); }
 
-        .footer-secure {
-            margin-top: 25px;
-            font-size: 12px;
-            color: #a4b0be;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
+        /* 3. Corporate Blog / Article Section */
+        .articles-section { max-width: 1100px; margin: 0 auto 60px auto; padding: 0 20px; }
+        .section-title { font-size: 28px; font-weight: 700; color: #2d3436; margin-bottom: 30px; text-align: center; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        .article-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .article-img { width: 100%; height: 180px; background: #dfe6e9; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #b2bec3; }
+        .article-content { padding: 25px; }
+        .category { color: #0984e3; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .article-title { font-size: 18px; font-weight: 700; color: #2d3436; margin-bottom: 15px; }
+        .article-desc { font-size: 14px; color: #636e72; }
+
+        /* 4. Corporate Footer */
+        .footer { background: #2d3436; color: #b2bec3; text-align: center; padding: 30px 20px; font-size: 14px; }
+        .footer a { color: #00cec9; text-decoration: none; margin: 0 10px; }
+        
+        @media (max-width: 768px) { .nav-links { display: none; } .navbar { justify-content: center; } }
     </style>
 </head>
 <body>
 
-    <div class="main-card">
-        <!-- Logo / Icon -->
-        <div class="header-icon">
-            🔒
+    <!-- Fake Navbar (Makes it look like a real company) -->
+    <nav class="navbar">
+        <div class="logo">Global Tech Solutions</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Cloud Security</a>
+            <a href="#">Enterprise AI</a>
+            <a href="#">Contact</a>
         </div>
-        
-        <h2>Securing Your Link...</h2>
-        <p class="subtitle">Please wait while we verify and redirect you to your destination.</p>
+    </nav>
 
-        <!-- 🔴 ৩. Monetag Banner Ad Placeholder (Top) 🔴 -->
-        <div class="ad-container">
-            [ Premium Ad Space 1 ]
-            <!-- Paste Monetag Banner Script Here -->
-        </div>
+    <!-- Main Secure Link Forwarder Area -->
+    <section class="hero-section">
+        <div class="main-card">
+            <div class="header-icon">🛡️</div>
+            <h2>Securing Your Connection</h2>
+            <p class="subtitle">Our advanced servers are validating your request. Please wait.</p>
 
-        <!-- Timer & Progress Bar -->
-        <div id="timer-section">
-            <div class="timer-text">Please wait <span id="time-left">15</span> seconds</div>
-            <div class="progress-wrapper">
-                <div class="progress-bar" id="progress-bar"></div>
+            <!-- 🔴 ৩. Monetag Banner Ad Placeholder (Top) 🔴 -->
+            <div class="ad-container">
+                [ Premium Advertisement Space 1 ]
             </div>
+
+            <!-- Timer & Progress Bar -->
+            <div id="timer-section">
+                <div class="timer-text">Validating link in <span id="time-left">15</span> seconds</div>
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Action Button (Triggers Monetag Popunder!) -->
+            <button id="go-button" class="action-btn" onclick="goToDestination()">
+                🚀 Proceed to Destination
+            </button>
+
+            <!-- 🔴 ৪. Monetag Banner Ad Placeholder (Bottom) 🔴 -->
+            <div class="ad-container" style="min-height: 100px;">
+                [ Premium Advertisement Space 2 ]
+            </div>
+            
+            <p style="font-size: 12px; color: #a4b0be; margin-top: 15px;">Protected by Enterprise-Grade 256-bit Encryption</p>
         </div>
+    </section>
 
-        <!-- 🔴 Click to Trigger Popunder & Redirect 🔴 -->
-        <button id="go-button" class="action-btn" onclick="goToDestination()">
-            🚀 Go To Destination
-        </button>
+    <!-- Corporate Blog Posts (To bypass Ad Network Rejections) -->
+    <section class="articles-section">
+        <h3 class="section-title">Latest Industry Insights</h3>
+        <div class="article-grid">
+            
+            <!-- Post 1 -->
+            <div class="article-card">
+                <div class="article-img">☁️</div>
+                <div class="article-content">
+                    <span class="category">Cloud Computing</span>
+                    <h4 class="article-title">The Future of Multi-Cloud Architecture in 2026</h4>
+                    <p class="article-desc">As businesses scale globally, adopting a multi-cloud strategy has become essential. Learn how companies are leveraging AWS, Google Cloud, and Azure to maximize uptime and security.</p>
+                </div>
+            </div>
 
-        <!-- 🔴 ৪. Monetag Banner Ad Placeholder (Bottom) 🔴 -->
-        <div class="ad-container" style="min-height: 100px;">
-            [ Premium Ad Space 2 ]
-            <!-- Paste Monetag Banner Script Here -->
+            <!-- Post 2 -->
+            <div class="article-card">
+                <div class="article-img">🔐</div>
+                <div class="article-content">
+                    <span class="category">Cybersecurity</span>
+                    <h4 class="article-title">Zero Trust Security: Why Passwords Are Not Enough</h4>
+                    <p class="article-desc">With cyber threats evolving rapidly, the 'Zero Trust' model ensures that every user, device, and connection is strictly authenticated. Discover the latest tools for data protection.</p>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="article-card">
+                <div class="article-img">🤖</div>
+                <div class="article-content">
+                    <span class="category">Artificial Intelligence</span>
+                    <h4 class="article-title">How Generative AI is Transforming Enterprise Workflows</h4>
+                    <p class="article-desc">From automated customer support to complex data analysis, AI algorithms are saving thousands of hours. Explore the top AI trends reshaping modern business infrastructure.</p>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-        <div class="footer-secure">
-            🛡️ 100% Safe & Secure Connection
-        </div>
-    </div>
+    <!-- Professional Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Global Tech Solutions Inc. All rights reserved.</p>
+        <p style="margin-top: 10px;">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Cookie Policy</a>
+        </p>
+    </footer>
 
+    <!-- Redirect Script -->
     <script>
         // 🔴 আপনার মেইন ওয়েবসাইটের লিংক (কোথায় যাবে) 🔴
         const targetURL = "https://bdhot.vercel.app/";
@@ -193,35 +196,25 @@
         const timerSection = document.getElementById('timer-section');
         const goButton = document.getElementById('go-button');
 
-        // Timer Logic
         const interval = setInterval(() => {
             currentSecond++;
             let remaining = totalSeconds - currentSecond;
             
-            // Update Text
             timeDisplay.innerText = remaining;
             
-            // Update Progress Bar Width
             let progressPercentage = (currentSecond / totalSeconds) * 100;
             progressBar.style.width = progressPercentage + "%";
 
-            // When Timer Reaches 0
             if (currentSecond >= totalSeconds) {
                 clearInterval(interval);
-                
-                // Hide timer and show the Action Button
                 timerSection.style.display = "none";
                 goButton.style.display = "block";
-                
-                // Optional: Change title to grab attention
-                document.querySelector('h2').innerText = "Your Link is Ready!";
-                document.querySelector('.subtitle').innerText = "Click the button below to proceed safely.";
+                document.querySelector('h2').innerText = "Connection Secured!";
+                document.querySelector('.subtitle').innerText = "Click the button below to access your destination securely.";
             }
-        }, 1000); // 1 second interval
+        }, 1000);
 
-        // Redirect Function
         function goToDestination() {
-            // Because the user CLICKS this button, Monetag's Popunder & Vignette will trigger easily!
             window.location.href = targetURL;
         }
     </script>
