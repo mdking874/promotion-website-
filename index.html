@@ -1,139 +1,229 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 🔴 ১. Monetag ভেরিফিকেশন কোড এখানে বসান (যাতে সাইট অ্যাপ্রুভ হয়) 🔴 -->
-    <meta name="monetag" content="আপনার_মোনেটাগ_ভেরিফিকেশন_কোড_এখানে">
-    
-    <!-- 🔴 ২. Monetag-এর Popunder বা Vignette অ্যাড স্ক্রিপ্ট (Script) এখানে বসাবেন 🔴 -->
-    <!-- <script src="monetag-script-link.js"></script> -->
+    <title>Secure Link Forwarder - Please Wait</title>
 
-    <title>Please Wait... Loading Your Link</title>
-    
+    <!-- 🔴 ১. Monetag Verification Code 🔴 -->
+    <meta name="monetag" content="আপনার_মোনেটাগ_ভেরিফিকেশন_কোড_এখানে">
+
+    <!-- 🔴 ২. Monetag Scripts (Vignette, In-Page Push, Popunder) এই হেডারের ভেতর বসাবেন 🔴 -->
+    <!-- উদাহরণ: <script src="monetag-popunder.js"></script> -->
+
+    <!-- Google Fonts for Premium Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #f4f7f6;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            color: #333;
         }
-        .container {
+        .main-card {
             background: #ffffff;
-            width: 90%;
-            max-width: 600px;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 650px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
             text-align: center;
-            border-top: 5px solid #2e86de;
+            border: 1px solid #eef2f5;
+        }
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background: #e0f7fa;
+            color: #00acc1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            margin: 0 auto 20px auto;
         }
         h2 {
-            color: #222f3e;
-            margin-bottom: 10px;
             font-size: 24px;
+            font-weight: 700;
+            color: #1e272e;
+            margin-bottom: 10px;
         }
-        p.desc {
-            color: #576574;
-            font-size: 16px;
+        p.subtitle {
+            font-size: 15px;
+            color: #808e9b;
             margin-bottom: 25px;
-            line-height: 1.5;
         }
-        .ad-space {
-            background: #f8f9fa;
-            border: 2px dashed #c8d6e5;
-            border-radius: 8px;
-            padding: 20px;
+        
+        /* Premium Ad Space */
+        .ad-container {
+            background: #fafbfc;
+            border: 2px dashed #d2dae2;
+            border-radius: 10px;
+            padding: 15px;
             margin: 20px 0;
-            min-height: 250px; /* Monetag Banner বা In-Page Push এর জন্য */
+            min-height: 250px; /* Perfect for Banner/Native Ads */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #8395a7;
-            font-weight: bold;
-        }
-        .timer-box {
-            background: #ff9f43;
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 15px 25px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(255, 159, 67, 0.4);
-        }
-        .timer-box span {
-            font-size: 26px;
-        }
-        .footer-note {
-            margin-top: 30px;
+            color: #b2bec3;
+            font-weight: 500;
             font-size: 14px;
+        }
+
+        /* Progress Bar Timer */
+        .progress-wrapper {
+            background: #ecf0f1;
+            border-radius: 20px;
+            height: 12px;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #0984e3, #00cec9);
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 1s linear;
+        }
+        .timer-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 20px;
+        }
+        .timer-text span {
+            color: #d63031;
+            font-size: 22px;
+        }
+
+        /* Action Button */
+        .action-btn {
+            display: none; /* Initially hidden */
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: #fff;
+            border: none;
+            padding: 16px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 206, 201, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 206, 201, 0.4);
+        }
+
+        .footer-secure {
+            margin-top: 25px;
+            font-size: 12px;
             color: #a4b0be;
-        }
-        .footer-note a {
-            color: #2e86de;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer-note a:hover {
-            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Your Link is Almost Ready!</h2>
-        <p class="desc">আপনার কাঙ্ক্ষিত ওয়েবসাইটে যাওয়ার জন্য লিংকটি প্রস্তুত করা হচ্ছে। অনুগ্রহ করে নিচে দেওয়া সময় পর্যন্ত অপেক্ষা করুন।</p>
+    <div class="main-card">
+        <!-- Logo / Icon -->
+        <div class="header-icon">
+            🔒
+        </div>
         
-        <!-- 🔴 ৩. Monetag Banner বা Direct Link অ্যাড এখানে বসান 🔴 -->
-        <div class="ad-space">
-            [ Monetag Advertisement Zone ]
+        <h2>Securing Your Link...</h2>
+        <p class="subtitle">Please wait while we verify and redirect you to your destination.</p>
+
+        <!-- 🔴 ৩. Monetag Banner Ad Placeholder (Top) 🔴 -->
+        <div class="ad-container">
+            [ Premium Ad Space 1 ]
+            <!-- Paste Monetag Banner Script Here -->
         </div>
 
-        <!-- টাইমার সেকশন -->
-        <div class="timer-box" id="timer-container">
-            অপেক্ষা করুন: <span id="countdown">15</span> সেকেন্ড
+        <!-- Timer & Progress Bar -->
+        <div id="timer-section">
+            <div class="timer-text">Please wait <span id="time-left">15</span> seconds</div>
+            <div class="progress-wrapper">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
         </div>
-        
-        <p class="footer-note" id="manual-redirect-text" style="display: none;">
-            রিডাইরেক্ট না হলে <a href="https://bdhot.vercel.app/" id="manual-link">এখানে ক্লিক করুন</a>
-        </p>
+
+        <!-- 🔴 Click to Trigger Popunder & Redirect 🔴 -->
+        <button id="go-button" class="action-btn" onclick="goToDestination()">
+            🚀 Go To Destination
+        </button>
+
+        <!-- 🔴 ৪. Monetag Banner Ad Placeholder (Bottom) 🔴 -->
+        <div class="ad-container" style="min-height: 100px;">
+            [ Premium Ad Space 2 ]
+            <!-- Paste Monetag Banner Script Here -->
+        </div>
+
+        <div class="footer-secure">
+            🛡️ 100% Safe & Secure Connection
+        </div>
     </div>
 
     <script>
-        // 🔴 আপনার মেইন ওয়েবসাইটের লিংক এখানে সেট করা আছে 🔴
-        var targetWebsite = "https://bdhot.vercel.app/"; 
+        // 🔴 আপনার মেইন ওয়েবসাইটের লিংক (কোথায় যাবে) 🔴
+        const targetURL = "https://bdhot.vercel.app/";
         
-        var timeLeft = 15; // ১৫ সেকেন্ড টাইমার
-        var countdownElement = document.getElementById("countdown");
-        var timerContainer = document.getElementById("timer-container");
-        var manualRedirectText = document.getElementById("manual-redirect-text");
+        let totalSeconds = 15;
+        let currentSecond = 0;
+        
+        const timeDisplay = document.getElementById('time-left');
+        const progressBar = document.getElementById('progress-bar');
+        const timerSection = document.getElementById('timer-section');
+        const goButton = document.getElementById('go-button');
 
-        var timer = setInterval(function() {
-            timeLeft--;
-            countdownElement.textContent = timeLeft;
+        // Timer Logic
+        const interval = setInterval(() => {
+            currentSecond++;
+            let remaining = totalSeconds - currentSecond;
+            
+            // Update Text
+            timeDisplay.innerText = remaining;
+            
+            // Update Progress Bar Width
+            let progressPercentage = (currentSecond / totalSeconds) * 100;
+            progressBar.style.width = progressPercentage + "%";
 
-            if (timeLeft <= 0) {
-                clearInterval(timer);
+            // When Timer Reaches 0
+            if (currentSecond >= totalSeconds) {
+                clearInterval(interval);
                 
-                // টাইমার শেষ হলে টেক্সট পরিবর্তন হবে
-                timerContainer.style.background = "#1dd1a1"; // কালার সবুজ হবে
-                timerContainer.style.boxShadow = "0 4px 15px rgba(29, 209, 161, 0.4)";
-                timerContainer.innerHTML = "লিংক প্রস্তুত হয়েছে! রিডাইরেক্ট করা হচ্ছে...";
+                // Hide timer and show the Action Button
+                timerSection.style.display = "none";
+                goButton.style.display = "block";
                 
-                manualRedirectText.style.display = "block"; // ম্যানুয়াল লিংক শো করবে
-                
-                // 🔴 ১৫ সেকেন্ড পর অটোমেটিক আপনার Vercel সাইটে নিয়ে যাবে 🔴
-                window.location.href = targetWebsite; 
+                // Optional: Change title to grab attention
+                document.querySelector('h2').innerText = "Your Link is Ready!";
+                document.querySelector('.subtitle').innerText = "Click the button below to proceed safely.";
             }
-        }, 1000);
+        }, 1000); // 1 second interval
+
+        // Redirect Function
+        function goToDestination() {
+            // Because the user CLICKS this button, Monetag's Popunder & Vignette will trigger easily!
+            window.location.href = targetURL;
+        }
     </script>
 
 </body>
